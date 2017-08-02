@@ -4,8 +4,6 @@ package com.mmc.transaction.system.base.proxy.java;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-import com.mmc.transaction.system.base.proxy.java.impl.RealHelloProxy;
-
 /** 
  * className: MockHelloProxy<br/>
  * Description: 代理类<br/>
@@ -19,9 +17,10 @@ public class MockHelloProxy implements InvocationHandler {
 	// 真实代理对象
 	private Object proxyObject;
 	
-	public MockHelloProxy() {
-		
+	public MockHelloProxy(Object proxy) {
+		this.proxyObject = proxy;
 	}
+	
 	
 	/**
 	 * 参数：
@@ -33,7 +32,11 @@ public class MockHelloProxy implements InvocationHandler {
 	 * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
 	 */
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-		return null;
+		System.out.println("执行实际方法之前......");
+		System.out.println("method: " + method);
+		Object returnValue = method.invoke(proxyObject, args);
+		System.out.println("执行实际方法之后......");
+		return returnValue;
 	}
 
 }
