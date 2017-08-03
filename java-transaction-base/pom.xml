@@ -20,5 +20,15 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.2</version>
 		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.1</version>
+		</dependency>
 	</dependencies>
 </project>
