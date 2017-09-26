@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 定义别名 -->
+	<typeAliases>
+		<typeAlias type="com.mmc.transaction.system.spring.domain.EodFileDomain" alias="eodFileDomain"/>
+	</typeAliases>
+	
+	<!-- mapper映射 -->
+	<mappers>
+		<mapper resource="sqlmap/mapper/sqlmap-eodfile.xml"/>
+	</mappers>
+	
+</configuration>
