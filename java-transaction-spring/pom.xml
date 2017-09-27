@@ -59,6 +59,11 @@
 		    <artifactId>druid</artifactId>
 		    <version>${druid.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.10</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>java-transaction-spring</finalName>

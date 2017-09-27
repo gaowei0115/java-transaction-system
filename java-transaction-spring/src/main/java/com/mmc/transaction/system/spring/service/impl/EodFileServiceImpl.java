@@ -37,11 +37,6 @@ public class EodFileServiceImpl implements EodFileService {
 		eodFileMapper.insertEodFile(domain);
 	}
 	
-	private void insert1(EodFileDomain domain) {
-		eodFileMapper.insertEodFile(domain);
-		int i = 1 / 0;
-	}
-
 	/* (non-Javadoc)
 	 * @see com.mmc.transaction.system.spring.service.EodFileService#batchSave(java.util.List)
 	 */

@@ -30,7 +30,7 @@ public class EodFileServiceTest extends BaseTest {
 	
 	@Before
 	public void setUp() {
-		for (int i = 0; i < 10000; i++){
+		for (int i = 0; i < 1; i++){
 			EodFileDomain domain = new EodFileDomain();
 			domain.setBusiDate("20170203");
 			domain.setBusiStatus("1");
@@ -43,6 +43,8 @@ public class EodFileServiceTest extends BaseTest {
 	@Test
 	public void test() {
 		//9930ms
+		eodFileService.batchSave(list);
+		
 		eodFileService.batchSave(list);
 	}
 	

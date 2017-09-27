@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定mapper命名空间 -->
+<mapper namespace="com.mmc.transaction.system.spring.mapper.EodFileMapper">
+
+	<!-- 保存数据 -->
+	<insert id="insertEodFile" parameterType="eodFileDomain">
+		INSERT INTO T_EOD_FILE_RECORD(busi_date, busi_status, begin_time, end_time)
+		VALUES(#{busiDate}, #{busiStatus}, #{beginDate}, #{endDate})
+	</insert>
+	
+	<!-- 批量插入 -->
+	<insert id="batchInsertEodFile" parameterType="java.util.List">
+		INSERT INTO T_EOD_FILE_RECORD(busi_date, busi_status, begin_time, end_time)
+		VALUES
+		<foreach collection="list" item="eodFileDomain" index="index" separator=",">
+			(#{eodFileDomain.busiDate}, #{eodFileDomain.busiStatus}, #{eodFileDomain.beginDate}, #{eodFileDomain.endDate})
+		</foreach>
+	</insert>
+</mapper>

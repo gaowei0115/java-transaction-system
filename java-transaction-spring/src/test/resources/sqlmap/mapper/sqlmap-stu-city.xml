@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定mapper命名空间 -->
+<mapper namespace="com.mmc.transaction.system.spring.mapper.StuCityMapper">
+
+	<!-- 保存信息 -->
+	<insert id="saveCity" parameterType="province">
+		INSERT INTO T_CITY VALUES(#{cityCode}, #{cityName}, #{provinceCode})
+	</insert>
+	
+	<!-- 批量保存 -->
+	<insert id="batchSaveCity" parameterType="java.util.List">
+		INSERT INTO T_CITY VALUES
+		<foreach collection="list" item="city" index="index" separator=",">
+			(#{city.cityCode}, #{city.cityName}, #{city.provinceCode})
+		</foreach>
+	</insert>
+	
+</mapper>
