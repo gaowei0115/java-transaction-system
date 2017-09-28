@@ -3,6 +3,7 @@ package com.mmc.transaction.system.spring.base.service.stu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -112,5 +113,154 @@ public class StuCityServiceTest extends BaseTest {
 		city.setProvinceCode("110000");
 		list.add(city);
 		cityService.batchAdd(list);
+	}
+	
+	@Test
+	public void test02() {
+		List<CityDomain> list = new ArrayList<CityDomain>();
+		CityDomain city = new CityDomain();
+		city.setCityCode("410100");
+		city.setCityName("郑州市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410200");
+		city.setCityName("开封市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410300");
+		city.setCityName("洛阳市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		
+		city = new CityDomain();
+		city.setCityCode("410400");
+		city.setCityName("平顶山市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410500");
+		city.setCityName("安阳市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410600");
+		city.setCityName("鹤壁市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410700");
+		city.setCityName("新乡市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410800");
+		city.setCityName("焦作市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("410900");
+		city.setCityName("濮阳市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411000");
+		city.setCityName("许昌市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411200");
+		city.setCityName("三门峡市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411300");
+		city.setCityName("南阳市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411400");
+		city.setCityName("商丘市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411500");
+		city.setCityName("信阳市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411600");
+		city.setCityName("周口市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		city = new CityDomain();
+		city.setCityCode("411700");
+		city.setCityName("驻马店市");
+		city.setProvinceCode("410000");
+		list.add(city);
+		
+		cityService.batchAdd(list);
+	}
+	
+	
+	@Test
+	public void test03() {
+		List<CityDomain> list = new ArrayList<CityDomain>();
+		CityDomain city = null;
+		for (int i = 0; i < 50000; i++) {
+			city = new CityDomain();
+			String cityCode = i + "";
+			int length = cityCode.length();
+			StringBuffer sb = new StringBuffer();
+			sb.append(cityCode);
+			if (length < 6) {
+				for (int j = 0; j < 6; j++) {
+					sb.append(random());
+				}
+			}
+			city.setCityCode(sb.toString());
+			city.setCityName("temp");
+			city.setProvinceCode("410000");
+			list.add(city);
+			sb = null;
+			city = null;
+		}
+		
+		cityService.batchAdd(list);
+	}
+	
+	@Test
+	public void test04() {
+		List<CityDomain> list = new ArrayList<CityDomain>();
+		CityDomain city = null;
+		for (int i = 50000; i < 100000; i++) {
+			city = new CityDomain();
+			String cityCode = i + "";
+			int length = cityCode.length();
+			StringBuffer sb = new StringBuffer();
+			sb.append(cityCode);
+			if (length < 6) {
+				for (int j = 0; j < 6; j++) {
+					sb.append(random());
+				}
+			}
+			city.setCityCode(sb.toString());
+			city.setCityName("temp");
+			city.setProvinceCode("110000");
+			list.add(city);
+			sb = null;
+			city = null;
+		}
+		
+		cityService.batchAdd(list);
+	}
+	
+	public String random() {
+		char[] arrayC = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+				'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		Random random = new Random();
+		int index = random.nextInt(arrayC.length);
+		return String.valueOf(arrayC[index]);
 	}
 }
