@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定mapper命名空间 -->
+<mapper namespace="com.mmc.transaction.system.spring.mapper.StuAddressMapper">
+	
+	<!-- 查询省区县信息 -->
+	<select id="queryPCC" resultType="address">
+		select t.county_id as countryCode, t.county_name as countryName, 
+			t.city_id as cityCode, t.city_name as cityName, 
+			p.province_id as provinceCode, p.province_name as provinceName from (
+		select co.county_id, co.county_name, c.city_id, c.city_name, c.province_id
+		from (t_country co LEFT JOIN t_city c on co.city_id=c.city_id) ) 
+		t LEFT JOIN t_province p on t.province_id=p.province_id
+	</select>
+		
+	<!-- 批量保存 -->
+	<insert id="batchSaveAddress" parameterType="java.util.List">
+		INSERT INTO T_USER_ADDRESS VALUES
+		<foreach collection="list" item="address" index="index" separator=",">
+			(#{address.addressCode}, #{address.provinceCode}, #{address.cityCode},
+			#{address.countryCode}, #{address.addressDesc}, #{address.postCode},
+			#{address.linkName}, #{address.linkPhone}, #{address.isDefault}
+			)
+		</foreach>
+	</insert>
+	
+</mapper>

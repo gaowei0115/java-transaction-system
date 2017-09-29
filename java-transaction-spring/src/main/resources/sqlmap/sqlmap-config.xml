@@ -8,6 +8,7 @@
 		<typeAlias type="com.mmc.transaction.system.spring.domain.EodFileDomain" alias="eodFileDomain"/>
 		<typeAlias type="com.mmc.transaction.system.spring.domain.stu.ProvinceDomain" alias="province"/>
 		<typeAlias type="com.mmc.transaction.system.spring.domain.stu.CountryDomain" alias="country"/>
+		<typeAlias type="com.mmc.transaction.system.spring.domain.stu.AddressDomain" alias="address"/>
 	</typeAliases>
 	
 	<!-- mapper映射 -->
@@ -16,6 +17,7 @@
 		<mapper resource="sqlmap/mapper/sqlmap-stu-province.xml"/>
 		<mapper resource="sqlmap/mapper/sqlmap-stu-city.xml"/>
 		<mapper resource="sqlmap/mapper/sqlmap-stu-country.xml"/>
+		<mapper resource="sqlmap/mapper/sqlmap-stu-address.xml"/>
 	</mappers>
 	
 	
